@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+
 void bubbleSort(int arr[], int n) {
     for (int i = 0; i < n - 1; i ++) {
         for (int j = 0; j < n - i - 1; j ++) {
@@ -14,6 +15,7 @@ void bubbleSort(int arr[], int n) {
 }
 
 
+//原理是在未排序序列中找到最小（或最大）元素，并将其放到已排序序列的末尾
 void selectionSort(int arr[], int n) {
     int i, j, min_idx;
 
@@ -56,7 +58,7 @@ void insertionSort(int arr[], int n) {
 int main(){
     int a[] = {3, 2, 4, 5, 1, 8, 7, 6};
     int n = sizeof(a) / sizeof(a[0]);
-    insertionSort(a, n);
+    selectionSort(a, n);
 
     for (int i = 0; i < n; i ++){
         cout << a[i] << endl;
