@@ -186,6 +186,7 @@ void mergeSort(int arr[], int left, int right) {
 ```
 
 ### 堆排序（Heap Sort）
+
 堆排序是一种基于二叉堆（通常是最大堆）数据结构的比较排序算法。堆排序可以分为两个主要步骤：建立最大堆和排序
 
 ```cpp
