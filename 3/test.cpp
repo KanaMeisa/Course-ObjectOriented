@@ -31,6 +31,7 @@ int mian() {
 	}  // 也可以使用numbers[i]
 
 
+
 	// 删除vector中的元素
 	vector<int> numbers = {1, 2, 3, 4, 5};
 	numbers.pop_back();   // 删除末尾的元素
