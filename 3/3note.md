@@ -2,7 +2,7 @@
 
 在C++中，有一些常见的算法是值得掌握的。这些算法并不限于C++，它们在计算机科学和编程领域都十分关键。以下是一些必会的算法：
 
-## 排序算法：
+## 排序算法
 
 ### 冒泡排序（Bubble Sort）
 
@@ -73,33 +73,51 @@ void insertionSort(int arr[], int n) {
 快速排序是一种分治算法，它的基本思想是在待排序的序列中选择一个基准元素，将序列分为两部分，其中一部分的所有元素都小于基准元素，另一部分的所有元素都大于基准元素，然后递归地对这两部分进行排序
 
 ```cpp
-
 int partition(int arr[], int low, int high) {
-    int pivot = arr[high]; // 选择最后一个元素作为基准
-    int i = (low - 1); // 小于基准元素的索引位置
+    int pivot = arr[low];   //选取最左边为基准元素
+    int i = low, j = high;
 
-    for (int j = low; j <= high - 1; j++) {
-        if (arr[j] < pivot) {
-            i++; // 如果当前元素小于基准，交换arr[i]和arr[j]
-            swap(arr[i], arr[j]);
-        }
+    while(1){
+        while (arr[i] < pivot) {
+            i++;
+        } //i指针会一直向右边移动，直至找到大于基准值的位置
+
+        while (arr[j] > pivot) {
+            j--;
+        } //j指针会一直向左移动，直至找到小于基准值的位置
+
+        if (i >= j) {
+            return j;
+        } //i大于等于j的时候说明i和j已经完成了分区，结束循环
+
+        swap(arr[i], arr[j]); //交换i和j位置的值
     }
-    // 将基准元素放到正确的位置
-    swap(arr[i + 1], arr[high]);
-    return (i + 1);
 }
 
 void quickSort(int arr[], int low, int high) {
     if (low < high) {
-        int pi = partition(arr, low, high); // 分区索引
-
-        // 分别对左右两个子数组进行递归排序
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
+        int pivot_index = partition(arr, low, high);
+        quickSort(arr, low, pivot_index);
+        quickSort(arr, pivot_index + 1, high);
     }
 }
 ```
 
+- partition 函数：该函数将数组分为两个部分，使基准元素（在本例中为数组的第一个元素）位于其正确的位置。左侧的所有元素小于基准元素，右侧的所有元素大于或等于基准元素。
+
+  - a. 初始化基准元素 pivot 为 arr[low]。
+
+  - b. 定义两个指针 i 和 j，分别初始化为 low 和 high。
+
+  - c. 使用一个无限循环，在循环内完成以下操作：
+
+
+    - i. 从左向右移动指针 `i`，直到找到一个大于或等于基准元素的值。
+    - ii. 从右向左移动指针 `j`，直到找到一个小于基准元素的值。
+    - iii. 如果 `i` 大于或等于 `j`，则退出循环。这意味着我们已经完成了数组的分区。
+    - iv. 交换 `arr[i]` 和 `arr[j]`。然后继续循环。
+
+  - d. 当循环结束时，返回 j。这是因为基准元素的最终位置为 j。
 
 ### 归并排序（Merge Sort）
 
