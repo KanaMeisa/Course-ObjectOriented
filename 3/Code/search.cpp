@@ -1,13 +1,6 @@
 #include <iostream>
 using namespace std;
 
-int leftBound(int ar[], int n, int target) {
-    int left = 0, right = n;
-
-    while (left < right) {
-        int mid = left + (right - left) / 2;
-    }
-}
 
 int leftBound(int arr[], int n, int target) {
     int left = 0, right = n;
@@ -16,10 +9,10 @@ int leftBound(int arr[], int n, int target) {
         //(right - left) / 2 是在 left 和 right 之间的偏移量，它将始终小于 right，因此它不会导致整数溢出
         int mid = left + (right - left) / 2;
 
-        if (arr[mid] < target) {
-            left = mid + 1;
+        if (arr[mid] < target) {  //l-----m--t---r
+            left = mid + 1;       //左边界无论如何都是mid+1
         } else {
-            right = mid;
+            right = mid;          //右边界无论如何都是mid
         }
     }
 
@@ -42,6 +35,7 @@ int rightBound(int arr[], int n, int target) {
 
     return left - 1;
 }
+
 
 int main() {
     int arr[] = {11, 12, 22, 25, 25, 64, 90};

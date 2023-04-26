@@ -51,7 +51,27 @@ void insertionSort(int arr[], int n) {
     } 
 }
 
+//Quick Sort
+int partition(int arr[], int low, int high) {
+    int pivot = arr[low];   //选取最左边为基准元素
+    int i = low, j = high;
 
+    while(1){
+        while (arr[i] < pivot) {
+            i++;
+        } //i指针会一直向右边移动，直至找到大于基准值的位置
+
+        while (arr[j] > pivot) {
+            j--;
+        } //j指针会一直向左移动，直至找到小于基准值的位置
+
+        if (i >= j) {
+            return j;
+        } //i大于等于j的时候说明i和j已经完成了分区，结束循环
+
+        swap(arr[i], arr[j]); //交换i和j位置的值
+    }
+}
 
 
 int main(){
