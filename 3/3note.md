@@ -101,6 +101,8 @@ void quickSort(int arr[], int low, int high) {
         quickSort(arr, pivot_index + 1, high);
     }
 }
+
+quickSort(arr, 0, n - 1);
 ```
 
 - partition 函数：该函数将数组分为两个部分，使基准元素（在本例中为数组的第一个元素）位于其正确的位置。左侧的所有元素小于基准元素，右侧的所有元素大于或等于基准元素。
@@ -111,13 +113,18 @@ void quickSort(int arr[], int low, int high) {
 
   - c. 使用一个无限循环，在循环内完成以下操作：
 
-
     - i. 从左向右移动指针 `i`，直到找到一个大于或等于基准元素的值。
     - ii. 从右向左移动指针 `j`，直到找到一个小于基准元素的值。
     - iii. 如果 `i` 大于或等于 `j`，则退出循环。这意味着我们已经完成了数组的分区。
     - iv. 交换 `arr[i]` 和 `arr[j]`。然后继续循环。
 
   - d. 当循环结束时，返回 j。这是因为基准元素的最终位置为 j。
+
+- quickSort 函数：这是实际的快速排序递归函数。它接受数组、低索引和高索引作为参数。
+
+  - a. 如果 low 小于 high，我们继续递归。否则，递归结束。
+
+  - b. 调用 partition 函数，将数组分区，并获得基准元素的索引 pivot_index。
 
 ### 归并排序（Merge Sort）
 
