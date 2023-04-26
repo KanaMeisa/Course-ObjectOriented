@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstring>
+#include "human.h"
+#include "superhero.h"
 using namespace std;
 
 void strcpy_s(char* dest, size_t dest_size, const char* src) {
@@ -18,8 +20,12 @@ void strcpy_s(char* dest, size_t dest_size, const char* src) {
     strcpy(dest, src);
 }
 
-class Human {
-public:
-    
+int main() {
+    superhero IronMan;
+    cout << IronMan.Height << endl;
 
+    IronMan.info();
+    cout << IronMan.PowerType << endl;
+
+    IronMan.SuitOn(8, 10);
 }
