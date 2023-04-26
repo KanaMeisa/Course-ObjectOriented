@@ -18,7 +18,8 @@ void strcpy_s(char* dest, size_t dest_size, const char* src) {
     strcpy(dest, src);
 }
 
-int main(){
-    cout << "hello, world" << endl;
-    return 0;
+class Human {
+public:
+    
+
 }
