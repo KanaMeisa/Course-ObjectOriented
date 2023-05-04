@@ -14,32 +14,29 @@ bool isPrime(int n) {
 }
 
 
+
 int main() {
-    string word;
-    cin >> word;
+    string str;
+    cin >> str;
 
-    int count[27];
-    for (int i = 1; i <= 26; i++) {
-        count[i] = 0;
+    int count[122];
+    for (int i = 0; i < str.length(); i++) {
+        count[(int)str[i]] ++;
     }
 
-    for (int i = 0; i < word.length(); i++) {
-        count[(int)i - 96] ++;
-    }
-
-    int max = 0;
-    int min = 100;
-    for (int i = 1; i <= 26; i++) {
-        if (count[i] < min && count[i] != 0) {
-            min = count[i];
-        } else if (count[i] > max) {
-            max = count[i];
+    int maxn = 0;
+    int minn = 100;
+    for (int i = 96 ; i < 122; i++) {
+        if (str[i] < minn) {
+            minn = str[i];
+        } else if (str[i] > maxn) {
+            maxn = str[i];
         }
     }
-
-    if (isPrime(max - min)) {
+    
+    if (isPrime(maxn - minn)) {
         cout << "Lucky Word" << endl;
-        cout << max - min;
+        cout << maxn - minn;
     } else {
         cout << "No Answer" << endl;
         cout << "0";
